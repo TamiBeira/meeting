@@ -72,11 +72,11 @@ export const FormProvider = ({ children }: MeetingContextProviderProps) => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-  
+
     const selectedDateTime = new Date(`${data}T${hora}`);
     const formattedDate = selectedDateTime.toLocaleDateString('pt-BR');
     const formattedTime = selectedDateTime.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-  
+
     let imagemUrl = '';
     if (imagem) {
       const reader = new FileReader();
@@ -89,14 +89,14 @@ export const FormProvider = ({ children }: MeetingContextProviderProps) => {
           imagem: imagemUrl,
           emails
         };
-  
+
         const existingData = localStorage.getItem('meetingData');
         let allMeetings: any[] = [];
       
         if (existingData) {
           allMeetings = JSON.parse(existingData);
         }
-  
+
         const isDuplicate = allMeetings.some((meeting: any) => {
           const sameDateAndTime = meeting.data === formattedDate && meeting.hora === formattedTime;
           const sameEmails = meeting.emails.length === emails.length && meeting.emails.every((email: string) => emails.includes(email));
@@ -110,6 +110,15 @@ export const FormProvider = ({ children }: MeetingContextProviderProps) => {
   
           localStorage.setItem('meetingData', JSON.stringify(allMeetings));
   
+          const emailText = `Detalhes da Reunião:
+            Título: ${title}
+            Data: ${formattedDate}
+            Hora: ${formattedTime}
+            ...`;
+          emails.forEach((email) => {
+            sendEmail(email, 'Detalhes da Reunião', emailText);
+          });
+  
           setData('');
           setHora('');
           setImagem(null);
@@ -117,7 +126,7 @@ export const FormProvider = ({ children }: MeetingContextProviderProps) => {
           setEmailInput('');
           setEmails([]);
   
-          toast.success('Reunião cadastrada com sucesso!');
+          toast.success('Reunião cadastrada com sucesso e e-mails enviados!');
         }
       };
       reader.readAsDataURL(imagem);
@@ -125,7 +134,7 @@ export const FormProvider = ({ children }: MeetingContextProviderProps) => {
       toast.error('Por favor, selecione uma imagem.');
     }
   };
-  
+
   return (
     <FormContext.Provider
       value={{
