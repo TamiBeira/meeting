@@ -1,39 +1,3 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
-import { toast } from 'react-toastify';
-
-export interface Meeting {
-  title: string;
-  data: string;
-  hora: string;
-  imagem: string;
-  imagemPath?: string;
-  emails: string[];
-}
-
-interface MeetingsContextType {
-  meetings: Meeting[];
-  editableIndex: number | null;
-  editedMeeting: Meeting;
-  handleEdit: (index: number) => void;
-  handleSave: () => void;
-  handleDelete: (index: number) => void;
-  handleInputChange: (event: React.ChangeEvent<HTMLInputElement>, key: string) => void;
-}
-
-interface MeetingContextProviderProps {
-  children: React.ReactNode;
-}
-
-const MeetingsContext = createContext<MeetingsContextType | undefined>(undefined);
-
-export const useMeetingsContext = () => {
-  const context = useContext(MeetingsContext);
-  if (!context) {
-    throw new Error('useMeetingsContext must be used within a MeetingsProvider');
-  }
-  return context;
-};
-
 export const MeetingsProvider: React.FC<MeetingContextProviderProps> = ({ children }) => {
   const [meetings, setMeetings] = useState<Meeting[]>([]);
   const [editableIndex, setEditableIndex] = useState<number | null>(null);
@@ -41,8 +5,8 @@ export const MeetingsProvider: React.FC<MeetingContextProviderProps> = ({ childr
     title: '',
     data: '',
     hora: '',
-    imagem: '', 
-    imagemPath: '',
+    imagem: '', // Adicione a propriedade imagem
+    imagemPath: '', // Adicione a propriedade imagemPath
     emails: [],
   });
 
@@ -71,7 +35,7 @@ export const MeetingsProvider: React.FC<MeetingContextProviderProps> = ({ childr
       title: '',
       data: '',
       hora: '',
-      imagem: '', 
+      imagem: '',
       imagemPath: '',
       emails: [],
     });
