@@ -6,7 +6,7 @@ export interface Meeting {
   data: string;
   hora: string;
   imagem: string;
-  emails: string;
+  email: string;
 }
 
 interface MeetingsContextType {
