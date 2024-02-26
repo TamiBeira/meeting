@@ -85,7 +85,8 @@ export const MeetingsView: React.FC = () => {
                   <img src={meeting.imagem} alt="Imagem da reunião" width={150} height={100} className="max-w-xs mx-auto mt-2" />
                 </div>
                 <div className="ml-4 mb-2 sm:mb-0">
-                  <strong>E-mails:</strong> {Array.isArray(meeting.emails) ? meeting.emails.join(', ') : ''}
+                <strong>E-mails:</strong> {Array.isArray(meeting.emails) ? meeting.emails.join(', ') : ''}
+                
                 </div>
                 <div>
                   <button
