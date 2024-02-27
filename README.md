@@ -1,0 +1,35 @@
+# Meeting App
+
+Este é um aplicativo de gerenciamento de reuniões desenvolvido com ReactJS.
+
+## Tecnologias Utilizadas
+
+- ReactJS
+- Vite
+- Local Storage
+
+## Instalação
+
+Para instalar as dependências, execute o seguinte comando no terminal:
+
+```bash
+npm install
+```
+
+Execução
+Para rodar a aplicação, utilize o seguinte comando:
+```bash
+npm run dev
+```
+
+### Após executar o comando acima, acesse a aplicação em seu navegador utilizando o seguinte endereço: 
+
+http://localhost:5173/
+
+## Screenshots
+
+![Captura de tela 1](https://github.com/TamiBeira/meeting/assets/55815968/a53ee2e4-5d81-4c8c-9a34-fefaa42d66fd)
+
+![Captura de tela 2](https://github.com/TamiBeira/meeting/assets/55815968/72d3c045-d5ed-471b-b0dd-13c6f77209eb)
+
+![Captura de tela 3](https://github.com/TamiBeira/meeting/assets/55815968/fd1822ff-4143-44ab-b150-b4a70b0117d1)
