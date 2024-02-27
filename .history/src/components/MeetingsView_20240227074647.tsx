@@ -90,7 +90,7 @@ export const MeetingsView: React.FC = () => {
                 <div>
                   <button
                     onClick={handleSave}
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded"
+                    className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mr-2 rounded"
                   >
                     Salvar
                   </button>
