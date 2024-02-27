@@ -29,7 +29,7 @@ export const MeetingsView: React.FC = () => {
 
   return (
     <div className="mx-auto bg-gray-900 w-full h-screen p-5 flex-col">
-      <h2 className="text-2xl text-white font-bold mb-4">Lista de Reuniões</h2>
+      <h2 className="text-2xl font-bold mb-4">Lista de Reuniões</h2>
       <div className="mt-4 mb-4">
         <Link to="/" className="w-40 mr-1 inline-block text-center border border-solid border-blue-500 text-blue-500 font-bold px-4 py-2 rounded">Home</Link>
         <Link to="/form" className="w-40 inline-block text-center border border-solid border-blue-500 text-blue-500 font-bold mr-2 px-4 py-2 rounded">Nova Reunião</Link>

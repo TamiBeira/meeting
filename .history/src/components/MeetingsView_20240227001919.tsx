@@ -29,7 +29,7 @@ export const MeetingsView: React.FC = () => {
 
   return (
     <div className="mx-auto bg-gray-900 w-full h-screen p-5 flex-col">
-      <h2 className="text-2xl text-white font-bold mb-4">Lista de Reuniões</h2>
+      <h2 className="text-2xl font-bold mb-4">Lista de Reuniões</h2>
       <div className="mt-4 mb-4">
         <Link to="/" className="w-40 mr-1 inline-block text-center border border-solid border-blue-500 text-blue-500 font-bold px-4 py-2 rounded">Home</Link>
         <Link to="/form" className="w-40 inline-block text-center border border-solid border-blue-500 text-blue-500 font-bold mr-2 px-4 py-2 rounded">Nova Reunião</Link>
@@ -99,13 +99,13 @@ export const MeetingsView: React.FC = () => {
             ) : (
               <>
                 <div className="w-1/5 text-white">{meeting.title}</div>
-                <div className="w-1/5 text-white">{meeting.data}</div>
-                <div className="w-1/5 text-white">{meeting.hora}</div>
-                <div className="w-1/5 text-white">
+                <div className="w-1/5">{meeting.data}</div>
+                <div className="w-1/5">{meeting.hora}</div>
+                <div className="w-1/5">
                   <img src={meeting.imagem} alt="Imagem da reunião" width={50} height={50}/>
                 </div>
-                <div className="w-1/5 text-white">{Array.isArray(meeting.emails) ? meeting.emails.join(', ') : ''}</div>
-                <div className="w-1/5 text-center text-white">
+                <div className="w-1/5">{Array.isArray(meeting.emails) ? meeting.emails.join(', ') : ''}</div>
+                <div className="w-1/5 text-center">
                   <button
                     onClick={() => handleEdit(index)}
                     className="text-blue-500 font-bold"

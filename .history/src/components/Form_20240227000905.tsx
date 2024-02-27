@@ -20,7 +20,7 @@ export const Form = () => {
   } = useFormContext();
 
   return (
-<main className="flex flex-col items-center bg-gray-900 w-full h-screen">
+    <main className="flex flex-col items-center mt-8 bg-gray-900">
       <div className="mt-4 mb-4">
         <Link to="/" className="w-56 mr-1 inline-block text-center border border-solid border-blue-500 text-blue-500 font-bold px-4 py-2 rounded">Home</Link>
         <Link to="/meetings" className="w-56 inline-block text-center border border-solid border-blue-500 text-blue-500 font-bold mr-2 px-4 py-2 rounded">Reuniões Cadastradas</Link>
