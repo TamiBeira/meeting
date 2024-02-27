@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { FaEdit, FaTrash } from 'react-icons/fa';
-import { useMeetingsContext } from '../contexts/MeetingsContext';
+import { useMeetingsContext, Meeting } from '../contexts/MeetingsContext';
 
 export const MeetingsView: React.FC = () => {
   const {
@@ -16,7 +16,7 @@ export const MeetingsView: React.FC = () => {
   } = useMeetingsContext();
 
   return (
-    <div className="max-w-5xl mx-auto mt-8"> {/* Adicionado mx-auto para centralizar horizontalmente */}
+    <div className="max-w-lg mx-auto mt-8 w-full"> {/* Adicionado w-full para ocupar 100% da tela */}
       <h2 className="text-2xl font-bold mb-4">Lista de Reuniões</h2>
       <div className="mt-4">
         <Link to="/meetings" className="text-blue-500 font-bold mr-2">Ver Reuniões Cadastradas</Link>
@@ -29,18 +29,17 @@ export const MeetingsView: React.FC = () => {
           <div className="w-1/5">Hora</div>
           <div className="w-1/5">Imagem</div>
           <div className="w-1/5">E-mails</div>
-          <div className="w-1/5">Editar</div>
-          <div className="w-1/5">Excluir</div>
+          <div className="w-1/5">Ação</div> {/* Nova coluna para ação */}
         </li>
         {meetings.map((meeting, index) => (
-          <li key={index} className="border-b border-gray-200 py-4 flex flex-col sm:flex-row justify-center">
+          <li key={index} className="border-b border-gray-200 py-4 flex flex-col sm:flex-row items-start sm:items-center">
             {editableIndex === index ? (
               <>
                 <input
                   type="text"
                   value={editedMeeting.title}
                   onChange={(e) => handleInputChange(e, 'title')}
-                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 max-w-28"
+                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 w-1/5"
                   placeholder="Título"
                 />
                 <input
@@ -90,17 +89,17 @@ export const MeetingsView: React.FC = () => {
                 <div className="w-1/5">
                   <button
                     onClick={() => handleEdit(index)}
-                    className="text-blue-500 font-bold"
+                    className="text-blue-500 font-bold py-2 px-4 mr-2 rounded"
                   >
                     <FaEdit className="inline-block mr-1" />
+                    Editar
                   </button>
-                </div>
-                <div className='w-1/5 justify-center'>
-                <button
+                  <button
                     onClick={() => handleDelete(index)}
-                    className="text-red-500 font-bold"
+                    className="text-red-500 font-bold py-2 px-4 rounded"
                   >
                     <FaTrash className="inline-block mr-1" />
+                    Excluir
                   </button>
                 </div>
               </>

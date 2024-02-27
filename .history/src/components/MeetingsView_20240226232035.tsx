@@ -23,7 +23,7 @@ export const MeetingsView: React.FC = () => {
         <Link to="/" className="text-blue-500 font-bold">Voltar para a Página Inicial</Link>
       </div>
       <ul>
-        <li className="border-b border-gray-200 py-2 flex sm:flex-row font-semibold">
+        <li className="border-b border-gray-200 py-2 flex sm:flex-row font-semibold flex-1">
           <div className="w-1/5">Título</div>
           <div className="w-1/5">Data</div>
           <div className="w-1/5">Hora</div>
@@ -33,14 +33,14 @@ export const MeetingsView: React.FC = () => {
           <div className="w-1/5">Excluir</div>
         </li>
         {meetings.map((meeting, index) => (
-          <li key={index} className="border-b border-gray-200 py-4 flex flex-col sm:flex-row justify-center">
+          <li key={index} className="border-b border-gray-200 py-4 flex flex-col sm:flex-row items-start sm:items-center">
             {editableIndex === index ? (
               <>
                 <input
                   type="text"
                   value={editedMeeting.title}
                   onChange={(e) => handleInputChange(e, 'title')}
-                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 max-w-28"
+                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 w-1/5"
                   placeholder="Título"
                 />
                 <input

@@ -47,26 +47,26 @@ export const MeetingsView: React.FC = () => {
                   type="date"
                   value={editedMeeting.data}
                   onChange={(e) => handleInputChange(e, 'data')}
-                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 w-1/5"
+                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 max-w-28"
                 />
                 <input
                   type="time"
                   value={editedMeeting.hora}
                   onChange={(e) => handleInputChange(e, 'hora')}
-                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 w-1/5"
+                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 max-w-28"
                 />
                 <input
                   type="text"
                   value={editedMeeting.imagem}
                   onChange={(e) => handleInputChange(e, 'imagem')}
-                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 w-1/5"
+                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 max-w-28"
                   placeholder="URL da Imagem"
                 />
                 <input
                   type="text"
                   value={editedMeeting.emails.join(', ')}
                   onChange={(e) => handleInputChange(e, 'emails')}
-                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 w-1/5"
+                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 max-w-28"
                   placeholder="E-mails"
                 />
                 <div>

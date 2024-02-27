@@ -40,7 +40,7 @@ export const MeetingsView: React.FC = () => {
                   type="text"
                   value={editedMeeting.title}
                   onChange={(e) => handleInputChange(e, 'title')}
-                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 max-w-28"
+                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 max-w-28 justify-center"
                   placeholder="Título"
                 />
                 <input
