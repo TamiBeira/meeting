@@ -84,7 +84,7 @@ export const MeetingsView: React.FC = () => {
                   type="text"
                   value={editedMeeting.emails.join(', ')}
                   onChange={(e) => handleInputChange(e, 'emails')}
-                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 w-64"
+                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   placeholder="E-mails"
                 />
                 <div>

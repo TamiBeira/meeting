@@ -82,9 +82,9 @@ export const MeetingsView: React.FC = () => {
                 </div>
                 <input
                   type="text"
-                  value={editedMeeting.emails.join(', ')}
+                  value={editedMeeting.emails.join('\n')} {/* Alterado para usar '\n' para quebrar a linha */}
                   onChange={(e) => handleInputChange(e, 'emails')}
-                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 w-64"
+                  className="mb-2 sm:mb-0 mr-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 whitespace-pre-wrap w-40" {/* Ajustado o tamanho */}
                   placeholder="E-mails"
                 />
                 <div>
@@ -104,7 +104,7 @@ export const MeetingsView: React.FC = () => {
                 <div className="w-1/5">
                   <img src={meeting.imagem} alt="Imagem da reunião" width={50} height={50} className="max-w-xs mx-auto mt-2" />
                 </div>
-                <div className="w-1/5">{Array.isArray(meeting.emails) ? meeting.emails.join(', ') : ''}</div>
+                <div className="w-1/5 whitespace-pre-wrap w-40">{Array.isArray(meeting.emails) ? meeting.emails.join('\n') : ''}</div>
                 <div className="w-1/5">
                   <button
                     onClick={() => handleEdit(index)}
