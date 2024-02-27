@@ -5,7 +5,7 @@ export interface Meeting {
   title: string;
   data: string;
   hora: string;
-  imagem?: string; // Tornando a propriedade imagem opcional
+  imagem?: string;
   imagemPath?: string;
   emails: string[];
 }
@@ -41,6 +41,8 @@ export const MeetingsProvider: React.FC<MeetingContextProviderProps> = ({ childr
     title: '',
     data: '',
     hora: '',
+    imagem: '', 
+    imagemPath: '',
     emails: [],
   });
 
@@ -69,6 +71,8 @@ export const MeetingsProvider: React.FC<MeetingContextProviderProps> = ({ childr
       title: '',
       data: '',
       hora: '',
+      imagem: '', 
+      imagemPath: '',
       emails: [],
     });
     toast.success('Reunião salva com sucesso!');
