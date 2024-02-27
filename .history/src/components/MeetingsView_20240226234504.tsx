@@ -75,7 +75,7 @@ export const MeetingsView: React.FC = () => {
                     className="hidden"
                     id="input-image"
                   />
-                  <label htmlFor="input-image" className="cursor-pointer mr-2 underline text-blue-500">Escolher outra imagem</label>
+                  <label htmlFor="input-image" className="cursor-pointer mr-2">Escolher</label>
                   {editedMeeting.imagem && (
                     <img src={editedMeeting.imagem} alt="Imagem da reunião" className="max-w-xs h-12" />
                   )}
@@ -102,18 +102,18 @@ export const MeetingsView: React.FC = () => {
                 <div className="w-1/5">{meeting.data}</div>
                 <div className="w-1/5">{meeting.hora}</div>
                 <div className="w-1/5">
-                  <img src={meeting.imagem} alt="Imagem da reunião" width={50} height={50}/>
+                  <img src={meeting.imagem} alt="Imagem da reunião" width={50} height={50} className="max-w-xs mx-auto mt-2" />
                 </div>
                 <div className="w-1/5">{Array.isArray(meeting.emails) ? meeting.emails.join(', ') : ''}</div>
-                <div className="w-1/5 text-center">
+                <div className="w-1/5 ext-center">
                   <button
                     onClick={() => handleEdit(index)}
-                    className="text-blue-500 font-bold"
+                    className="text-blue-500 font-bold text-center"
                   >
                     <FaEdit className="inline-block mr-1" />
                   </button>
                 </div>
-                <div className='w-1/5 justify-center text-center'>
+                <div className='w-1/5 justify-center'>
                   <button
                     onClick={() => handleDelete(index)}
                     className="text-red-500 font-bold"

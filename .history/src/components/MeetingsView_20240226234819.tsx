@@ -75,7 +75,7 @@ export const MeetingsView: React.FC = () => {
                     className="hidden"
                     id="input-image"
                   />
-                  <label htmlFor="input-image" className="cursor-pointer mr-2 underline text-blue-500">Escolher outra imagem</label>
+                  <label htmlFor="input-image" className="cursor-pointer mr-2">Escolher</label>
                   {editedMeeting.imagem && (
                     <img src={editedMeeting.imagem} alt="Imagem da reunião" className="max-w-xs h-12" />
                   )}
