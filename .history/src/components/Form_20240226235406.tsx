@@ -22,7 +22,7 @@ export const Form = () => {
   return (
     <main className="flex flex-col items-center mt-8">
       <div className="mt-4 mb-4">
-        <Link to="/" className="w-56 mr-1 inline-block text-center border border-solid border-blue-500 text-blue-500 font-bold px-4 py-2 rounded">Home</Link>
+        <Link to="/" className="w-56 inline-block text-center border border-solid border-blue-500 text-blue-500 font-bold px-4 py-2 rounded">Home</Link>
         <Link to="/meetings" className="w-56 inline-block text-center border border-solid border-blue-500 text-blue-500 font-bold mr-2 px-4 py-2 rounded">Reuniões Cadastradas</Link>
       </div>
       <div className="mx-auto max-w-md p-6 bg-gray-100 rounded-lg shadow-xl">

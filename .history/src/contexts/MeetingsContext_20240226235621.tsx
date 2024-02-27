@@ -54,6 +54,7 @@ export const MeetingsProvider: React.FC<MeetingContextProviderProps> = ({ childr
   const handleEdit = (index: number) => {
     setEditableIndex(index);
     setEditedMeeting(meetings[index]);
+    toast.success('Reunião editada com sucesso!');
   };
 
   const handleSave = () => {
