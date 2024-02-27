@@ -95,11 +95,13 @@ export const FormProvider = ({ children }: MeetingContextProviderProps) => {
         console.log('Editar reunião existente para remover participantes duplicados...');
         return;
       } else {
+        // Usuário cancelou o cadastro
         toast.warning('Cadastro cancelado.');
         return;
       }
     }
-
+  
+    // Se não houver reunião duplicada ou se o usuário optar por continuar após editar a reunião existente
     let imagemUrl = '';
     if (imagem) {
       const reader = new FileReader();
@@ -130,6 +132,11 @@ export const FormProvider = ({ children }: MeetingContextProviderProps) => {
       toast.error('Por favor, selecione uma imagem.');
     }
   };
+  
+  
+  
+  
+  
   
   
   return (

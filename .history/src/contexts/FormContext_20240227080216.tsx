@@ -77,29 +77,6 @@ export const FormProvider = ({ children }: MeetingContextProviderProps) => {
     const formattedDate = selectedDateTime.toLocaleDateString('pt-BR');
     const formattedTime = selectedDateTime.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
   
-    const existingData = localStorage.getItem('meetingData');
-    let allMeetings: any[] = [];
-  
-    if (existingData) {
-      allMeetings = JSON.parse(existingData);
-    }
-  
-    const duplicateMeeting = allMeetings.find((meeting: any) => {
-      const sameDateAndTime = meeting.data === formattedDate && meeting.hora === formattedTime;
-      const sameEmails = meeting.emails.some((email: string) => emails.includes(email));
-      return sameDateAndTime && sameEmails;
-    });
-  
-    if (duplicateMeeting) {
-      if (window.confirm('Já existe uma reunião agendada para o mesmo horário e com os mesmos participantes. Deseja editar a reunião existente para remover os participantes duplicados?')) {
-        console.log('Editar reunião existente para remover participantes duplicados...');
-        return;
-      } else {
-        toast.warning('Cadastro cancelado.');
-        return;
-      }
-    }
-
     let imagemUrl = '';
     if (imagem) {
       const reader = new FileReader();
@@ -113,23 +90,58 @@ export const FormProvider = ({ children }: MeetingContextProviderProps) => {
           emails
         };
   
-        allMeetings.push(meetingData);
-        localStorage.setItem('meetingData', JSON.stringify(allMeetings));
+        const existingData = localStorage.getItem('meetingData');
+        let allMeetings: any[] = [];
   
-        setData('');
-        setHora('');
-        setImagem(null);
-        setTitle('');
-        setEmailInput('');
-        setEmails([]);
+        if (existingData) {
+          allMeetings = JSON.parse(existingData);
+        }
   
-        toast.success('Reunião cadastrada com sucesso!');
+        const duplicateMeeting = allMeetings.find((meeting: any) => {
+          const sameDateAndTime = meeting.data === formattedDate && meeting.hora === formattedTime;
+          const sameEmails = meeting.emails.length === emails.length && meeting.emails.every((email: string) => emails.includes(email));
+          return sameDateAndTime && sameEmails;
+        });
+  
+        if (duplicateMeeting) {
+          if (window.confirm('Já existe uma reunião agendada para o mesmo horário. Deseja continuar mesmo assim?')) {
+            allMeetings.push(meetingData);
+    
+            localStorage.setItem('meetingData', JSON.stringify(allMeetings));
+    
+            setData('');
+            setHora('');
+            setImagem(null);
+            setTitle('');
+            setEmailInput('');
+            setEmails([]);
+    
+            toast.success('Reunião cadastrada com sucesso!');
+          } else {
+            // Usuário cancelou o cadastro
+            toast.warning('Cadastro cancelado.');
+          }
+        } else {
+          allMeetings.push(meetingData);
+  
+          localStorage.setItem('meetingData', JSON.stringify(allMeetings));
+  
+          setData('');
+          setHora('');
+          setImagem(null);
+          setTitle('');
+          setEmailInput('');
+          setEmails([]);
+  
+          toast.success('Reunião cadastrada com sucesso!');
+        }
       };
       reader.readAsDataURL(imagem);
     } else {
       toast.error('Por favor, selecione uma imagem.');
     }
   };
+  
   
   
   return (

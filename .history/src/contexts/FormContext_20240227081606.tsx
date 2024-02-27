@@ -99,7 +99,8 @@ export const FormProvider = ({ children }: MeetingContextProviderProps) => {
         return;
       }
     }
-
+  
+    // Se não houver reunião duplicada ou se o usuário optar por continuar após editar a reunião existente
     let imagemUrl = '';
     if (imagem) {
       const reader = new FileReader();
@@ -130,6 +131,11 @@ export const FormProvider = ({ children }: MeetingContextProviderProps) => {
       toast.error('Por favor, selecione uma imagem.');
     }
   };
+  
+  
+  
+  
+  
   
   
   return (

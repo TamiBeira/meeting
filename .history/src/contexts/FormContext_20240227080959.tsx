@@ -86,20 +86,24 @@ export const FormProvider = ({ children }: MeetingContextProviderProps) => {
   
     const duplicateMeeting = allMeetings.find((meeting: any) => {
       const sameDateAndTime = meeting.data === formattedDate && meeting.hora === formattedTime;
-      const sameEmails = meeting.emails.some((email: string) => emails.includes(email));
+      const sameEmails = meeting.emails.includes(emailInput);
       return sameDateAndTime && sameEmails;
     });
   
     if (duplicateMeeting) {
-      if (window.confirm('Já existe uma reunião agendada para o mesmo horário e com os mesmos participantes. Deseja editar a reunião existente para remover os participantes duplicados?')) {
-        console.log('Editar reunião existente para remover participantes duplicados...');
-        return;
+      if (window.confirm('Já existe uma reunião agendada para o mesmo horário e o mesmo email. Deseja editar a reunião existente para remover o email?')) {
+        // Permitir que o usuário edite a reunião existente para remover o email
+        // Implemente a lógica para editar a reunião existente aqui
+        // Após a edição, continue com o processo de cadastro
+        console.log('Editar reunião existente para remover o email...');
       } else {
+        // Usuário cancelou o cadastro
         toast.warning('Cadastro cancelado.');
         return;
       }
     }
-
+  
+    // Se não houver reunião duplicada ou se o usuário optar por continuar após editar a reunião existente
     let imagemUrl = '';
     if (imagem) {
       const reader = new FileReader();
@@ -130,6 +134,10 @@ export const FormProvider = ({ children }: MeetingContextProviderProps) => {
       toast.error('Por favor, selecione uma imagem.');
     }
   };
+  
+  
+  
+  
   
   
   return (
